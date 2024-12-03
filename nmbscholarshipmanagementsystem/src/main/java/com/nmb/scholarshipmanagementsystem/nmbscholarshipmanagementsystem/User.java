@@ -1,4 +1,3 @@
-package com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model;
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

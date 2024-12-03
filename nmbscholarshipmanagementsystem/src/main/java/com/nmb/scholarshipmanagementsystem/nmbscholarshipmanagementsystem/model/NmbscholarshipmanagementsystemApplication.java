@@ -1,4 +1,4 @@
-package com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem;
+package com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
