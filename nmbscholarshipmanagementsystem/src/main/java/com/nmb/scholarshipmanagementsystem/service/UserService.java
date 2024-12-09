@@ -1,15 +1,18 @@
 package com.nmb.scholarshipmanagementsystem.service;
 import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.User;
-import com.nmb.scholarshipmanagementsystem.repository.UserRepository;
-import jakarta.annotation.PostConstruct;
 import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.UserRole;
+import com.nmb.scholarshipmanagementsystem.repository.UserRepository;
+
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
-import java.util.UUID;
 
 
 
@@ -39,11 +42,11 @@ public class UserService {
         }
     }
 
-    public User createNewAdmin(String name, String email){
+    public User createNewAdmin(String Name, String Email){
         String generatedPassword= generateRandomPassword();
         User newAdmin= new User();
-        newAdmin.setName(name);
-        newAdmin.setEmail(email);
+        newAdmin.setName(Name);
+        newAdmin.setEmail(Email);
         newAdmin.setPassword(passwordEncoder.encode(generatedPassword));
         newAdmin.setRole(UserRole.ADMIN);
         newAdmin.setFactory(false);
@@ -56,7 +59,7 @@ public class UserService {
         User savedAdmin= userRepository.save(newAdmin);
 
         String resetLink="http://nmbsms.com/reset-password?token=" + resetToken;
-        emailService.sendPasswordResetEmail(email,resetLink);
+        emailService.sendPasswordResetEmail(Email,resetLink);
 
         return savedAdmin;
     }

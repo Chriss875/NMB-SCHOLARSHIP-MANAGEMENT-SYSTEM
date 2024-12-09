@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.Table;
+import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.UserRole;
 
 @Entity
 @Table(name="users")
