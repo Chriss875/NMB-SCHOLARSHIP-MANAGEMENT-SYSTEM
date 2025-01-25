@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class ResetPasswordRequest {
 
     @NotBlank
-    private String Token;
+    private String token;
 
     @NotBlank
     private String newPassword;
