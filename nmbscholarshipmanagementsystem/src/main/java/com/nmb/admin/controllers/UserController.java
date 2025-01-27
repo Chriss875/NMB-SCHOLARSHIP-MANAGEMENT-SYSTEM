@@ -1,22 +1,24 @@
-package com.nmb.scholarshipmanagementsystem.contollers;
+package com.nmb.admin.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.nmb.scholarshipmanagementsystem.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.User;
-import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.CreateAdminRequest;
-import com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model.ResetPasswordRequest;
-
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.nmb.admin.controllers.dto.CreateAdminRequest;
+import com.nmb.admin.controllers.dto.ResetPasswordRequest;
+import com.nmb.scholarshipmanagementsystem.model.User;
+import com.nmb.admin.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/admin")
     public ResponseEntity<User> createAdmin(@RequestBody CreateAdminRequest request) {
@@ -26,7 +28,7 @@ public class UserController {
 
     @PostMapping("/reset-password")
         public ResponseEntity<Void> resetPassword(@RequestBody ResetPasswordRequest request){
-            userService.resetPassword(request.getToken(), request.getnewPassword());
+            userService.resetPassword(request.getToken(), request.getNewPassword());
             return ResponseEntity.ok().build();
       }  
 }

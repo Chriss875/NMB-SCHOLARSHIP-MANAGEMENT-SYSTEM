@@ -1,4 +1,5 @@
-package com.nmb.scholarshipmanagementsystem.nmbscholarshipmanagementsystem.model;
+package com.nmb.admin.dto;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
