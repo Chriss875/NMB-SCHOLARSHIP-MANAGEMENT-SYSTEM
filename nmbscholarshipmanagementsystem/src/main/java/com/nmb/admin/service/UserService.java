@@ -1,15 +1,18 @@
 package com.nmb.admin.service;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.nmb.admin.model.User;
 import com.nmb.admin.model.UserRole;
+import com.nmb.admin.repository.UserRepository;
+
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import com.nmb.admin.repository.UserRepository;
-import com.nmb.admin.model.User;
 @Service
 @Slf4j
 public class UserService {

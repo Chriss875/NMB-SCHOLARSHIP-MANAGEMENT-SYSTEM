@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.nmb.admin.dto.CreateAdminRequest;
-import com.nmb.scholarshipmanagementsystem.dto.ResetPasswordRequest;
-import com.nmb.scholarshipmanagementsystem.model.User;
+import com.nmb.admin.dto.ResetPasswordRequest;
+import com.nmb.admin.model.User;
 import com.nmb.admin.service.UserService;
 
 @RestController
